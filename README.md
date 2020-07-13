@@ -35,12 +35,19 @@ cacheSolve <- function(x, ...) {
   
   #get the value from the inverse matrix
   i <- x$getInverse()
+  
   if(!is.null(i)) {
+  
     message("getting cached data")
+    
     return(i)
+    
   }
+  
   data <- x$get()
+  
   i <- solve(data, ...)
+  
   x$setInverse(i)
   i
 }
