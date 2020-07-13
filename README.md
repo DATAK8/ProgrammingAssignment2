@@ -33,24 +33,17 @@ makeCacheMatrix <- function(x = numeric()) {
 # CacheSolve computes the inverse of the special matrix before.
 
 cacheSolve <- function(x, ...) {
-  
+
   #get the value from the inverse matrix
   i <- x$getInverse()
-  
-  if(!is.null(i)) {
-  
-    message("getting cached data")
-    
-    return(i)
+   if(!is.null(i)) {
+   message("getting cached data")
+   return(i)
     
   }
-  
-  data <- x$get()
-  
-  i <- solve(data, ...)
-  
-  x$setInverse(i)
-  
+    data <- x$get()
+    i <- solve(data, ...)
+    x$setInverse(i)
   i
   
 }
